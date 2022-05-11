@@ -1,6 +1,6 @@
 package in.brainupgrade.dynamodb;
 
-
+import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 
@@ -13,9 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
-@DynamoDBTable(tableName = "UserAccess")
+@DynamoDBTable(tableName = "sba-rajesh-UserAccess")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,20 +21,41 @@ public class User {
 
 	@Id
 	UserKey key;
-	
-	@DynamoDBHashKey
+
 	private String email;
-	@DynamoDBRangeKey
 	private Date accessTime;
-	@DynamoDBAttribute
 	private String firstName;
-	@DynamoDBAttribute
 	private String lastName;
-	@DynamoDBAttribute
 	private String urlAccessed;
 
 	public User(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
+
+	@DynamoDBHashKey
+	public String getEmail() {
+		return email;
+	}
+
+	@DynamoDBRangeKey
+	public Date getAccessTime() {
+		return accessTime;
+	}
+
+	@DynamoDBAttribute
+	public String getFirstName() {
+		return firstName;
+	}
+
+	@DynamoDBAttribute
+	public String getLastName() {
+		return lastName;
+	}
+
+	@DynamoDBAttribute
+	public String getUrlAccessed() {
+		return urlAccessed;
+	}
+
 }
