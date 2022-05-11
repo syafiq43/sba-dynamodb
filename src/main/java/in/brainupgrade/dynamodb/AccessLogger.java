@@ -1,6 +1,6 @@
 package in.brainupgrade.dynamodb;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -22,7 +22,7 @@ public class AccessLogger {
 		user.setEmail("admin@cloudtech-training.com");
 		user.setFirstName("Admin");
 		user.setLastName("Class");
-		user.setAccessTime(LocalDateTime.now().toString());
+		user.setAccessTime(new Date());
 		user.setUrlAccessed("/reward");
 
 		userService.saveAccessLog(user);

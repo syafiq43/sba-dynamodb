@@ -13,6 +13,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @DynamoDBTable(tableName = "UserAccess")
 @Data
 @NoArgsConstructor
@@ -25,7 +27,7 @@ public class User {
 	@DynamoDBHashKey
 	private String email;
 	@DynamoDBRangeKey
-	private String accessTime;//LocalDateTime
+	private Date accessTime;
 	@DynamoDBAttribute
 	private String firstName;
 	@DynamoDBAttribute

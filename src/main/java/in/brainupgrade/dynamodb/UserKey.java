@@ -1,6 +1,7 @@
 package in.brainupgrade.dynamodb;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
@@ -19,5 +20,5 @@ public class UserKey implements Serializable {
 	@DynamoDBHashKey
 	private String email;
 	@DynamoDBRangeKey
-	private String accessTime;//LocalDateTime
+	private Date accessTime;
 }

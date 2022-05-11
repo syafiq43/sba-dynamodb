@@ -6,10 +6,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface PagingUserRepository extends PagingAndSortingRepository<User, String> {
-	Page<User> findByLastName(String lastName, Pageable pageable);
+@EnableScan
+public interface PagingUserRepository extends PagingAndSortingRepository<User, UserKey> {
+	
+	Page<User> findByEmail(String email, Pageable pageable);
 
-	@EnableScan
 	@EnableScanCount
 	Page<User> findAll(Pageable pageable);
 }
