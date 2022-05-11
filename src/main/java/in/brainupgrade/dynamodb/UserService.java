@@ -18,15 +18,12 @@ public class UserService {
 	@Autowired
 	AmazonDynamoDB amazonDynamoDB;
 
-	public void sampleTestCase() {
-		User gosling = new User("James", "Gosling");
-		repository.save(gosling);
-
-		User hoeller = new User("Juergen", "Hoeller");
-		repository.save(hoeller);
-
-		List<User> result = repository.findByLastName("Gosling");
-		log.info("found users: " + result);
-
+	public void saveAccessLog(User user) {
+		repository.save(user);
+	}
+	public List<User> getUserLogs(String lastName){
+		List<User> result = repository.findByLastName(lastName);
+		log.info("found user logs: " + result);
+		return result;
 	}
 }
