@@ -17,5 +17,6 @@ public class Consumer {
     @SqsListener(value = "${cloud.aws.end-point.uri}",deletionPolicy = SqsMessageDeletionPolicy.ON_SUCCESS)
     public void processMessage(TestMessage message) {
         log.info("Message from SQS {}", message.getMessage());
+        //save this user access log into dynamo db using userService
     }
 }
